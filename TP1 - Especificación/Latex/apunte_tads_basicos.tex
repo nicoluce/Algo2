@@ -192,7 +192,27 @@ R1 = $\{$ \paratodo{$as_1,  as_2 \in$ ases}{}, Placa($as_1$) $\neq$ Placa($as_2$
 
 \tadOtrasOperaciones
 
-\tadOperacion{}{}{}{}
+\tadOperacion{PosAses}{conj(As)}{conj(posición)}{}
+
+\tadOperacion{HayEstudiante?}{posición/p, rastri/rs}{bool}
+	{FiltrarValidas(Ag(p, $\emptyset$), rs) = Ag(p, $\emptyset$)}
+\tadOperacion{HayHippie?}{posición/p, rastri rs}{bool}
+{FiltrarValidas(Ag(p, $\emptyset$), rs) = Ag(p, $\emptyset$)}
+\tadOperacion{HayHippie?}{posición/p, rastri rs}{bool}
+{FiltrarValidas(Ag(p, $\emptyset$), rs) = Ag(p, $\emptyset$)}
+\tadOperacion{HayAS?}{posición/p, rastri rs}{bool}
+{FiltrarValidas(Ag(p, $\emptyset$), rs) = Ag(p, $\emptyset$)}
+\tadOperacion{HayAlgo?}{posición/p, rastri rs}{bool}
+{FiltrarValidas(Ag(p, $\emptyset$), rs) = Ag(p, $\emptyset$)}
+
+\tadOperacion{FiltrarDesocupadas}{conj(posición)/P, rastri/rs)}{conj(posición)}{FiltrarValidas(P, rs) = P}
+\tadOperacion{PosAdyDesocupadas}{conj(posición)/P, rastri/rs}{conj(posición)}{FiltrarValidas(P, rs) = P}
+\tadOperacion{FiltrarValidas}{conj(posición)/P, rastri/rs}{conj(posición)}{}
+\tadOperacion{PosAdy}{conj(posición)/P, rastri/rs}{conj(posición)}{FiltrarValidas(P, rs) = P}
+
+\tadOperacion{FiltrarEstudiantes}{conj(posición)/P, rastri/rs}{conj(posición)}{FiltrarValidas(P, rs) = P}
+
+
 
 \tadAxiomas[\paratodo{}{}]
 %\tadAlinearAxiomas{pred(suc($n$))}

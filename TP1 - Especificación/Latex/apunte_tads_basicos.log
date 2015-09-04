@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.4)  3 SEP 2015 22:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.4.4)  4 SEP 2015 12:15
 entering extended mode
 **apunte_tads_basicos.tex
 
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.tex"
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -131,8 +131,8 @@ LaTeX Warning: You have requested release `2014/05/01' of LaTeX,
 
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\aed2-symb.sty"
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\aed2-symb.sty"
 Package: aed2-symb 2004/04/17 - Para componer simbolitos frecuentemente usados 
 en AED2
 
@@ -224,8 +224,8 @@ File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 \xargs@toksa=\toks26
 \xargs@toksb=\toks27
 ))
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\aed2-itef.sty"
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\aed2-itef.sty"
 Package: aed2-itef 2010/03/16 - if-then-else-fi en lenguaje de TADs.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
@@ -236,8 +236,8 @@ Cargando package 'itef' (2010/03/16)
 \itef@widthUnaLinea=\skip56
 \itef@linewidth=\skip57
 )
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\aed2-tad.sty"
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\aed2-tad.sty"
 Package: aed2-tad 2011/04/04 - Para especificar TADs en formato AED2
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\calc.sty"
@@ -253,8 +253,8 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \calc@Ccount=\count109
 \calc@Cskip=\skip60
 )
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\aed2-tokenizer.sty"
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\aed2-tokenizer.sty"
 Package: aed2-tokenizer 2010/03/12
 )
 Package aed2-tad Info: Cargando package 'tad' (04/04/2011) on input line 26.
@@ -389,8 +389,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip79
 )
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.aux")
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
 LaTeX Font Info:    ... okay on input line 46.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
@@ -483,10 +483,10 @@ LaTeX Info: Redefining \ref on input line 46.
 LaTeX Info: Redefining \pageref on input line 46.
 LaTeX Info: Redefining \nameref on input line 46.
 
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.out")
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.out")
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.out")
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.out")
 \@outlinefile=\write3
 LaTeX Font Info:    Try loading font information for U+lasy on input line 52.
 
@@ -503,29 +503,29 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 52.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.toc")
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.toc")
 \tf@toc=\write4
  [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3] 
 AED: lastpage setting LastPage
 [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 203.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 203.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 223.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 223.
 
-("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\TP1 - Especif
-icación\Latex\apunte_tads_basicos.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 203.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 203.
+("C:\Users\Nico\Documents\UBA\Algoritmos y Estructuras de Datos 2\Algo2\TP1 - E
+specificación\Latex\apunte_tads_basicos.aux")
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 223.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 223.
 Package rerunfilecheck Info: File `apunte_tads_basicos.out' has not changed.
 (rerunfilecheck)             Checksum: 3E131A6C2E4B7B74E6CAF5EE3B8A70ED;93.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 203.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 223.
  ) 
 Here is how much of TeX's memory you used:
  7749 strings out of 493921
- 110810 string characters out of 3144880
- 213490 words of memory out of 3000000
+ 110936 string characters out of 3144880
+ 218490 words of memory out of 3000000
  10906 multiletter control sequences out of 15000+200000
  18820 words of font info for 57 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -544,9 +544,9 @@ gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Fi
 les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files 
 (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on apunte_tads_basicos.pdf (4 pages, 118062 bytes).
+Output written on apunte_tads_basicos.pdf (4 pages, 118903 bytes).
 PDF statistics:
- 262 PDF objects out of 1000 (max. 8388607)
+ 263 PDF objects out of 1000 (max. 8388607)
  8 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
