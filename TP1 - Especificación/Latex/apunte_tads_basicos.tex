@@ -1,0 +1,203 @@
+\documentclass[10pt, a4paper]{article}
+\usepackage[paper=a4paper, left=1.5cm, right=1.5cm, bottom=1.5cm, top=3.5cm]{geometry}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{latexsym}
+\usepackage{lastpage}
+\usepackage{aed2-symb,aed2-itef,aed2-tad}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage{calc}
+
+\newcommand{\f}[1]{\text{#1}}
+\renewcommand{\paratodo}[2]{$\forall~#2$: #1}
+
+\sloppy
+
+\hypersetup{%
+ % Para que el PDF se abra a página completa.
+ pdfstartview= {FitH \hypercalcbp{\paperheight-\topmargin-1in-\headheight}},
+ pdfauthor={Cátedra de Algoritmos y Estructuras de Datos II - DC - UBA},
+ pdfkeywords={TP1},
+ pdfsubject={TP1 - Especificación}
+}
+
+\parskip=5pt % 10pt es el tamaño de fuente
+
+% Pongo en 0 la distancia extra entre ítemes.
+\let\olditemize\itemize
+\def\itemize{\olditemize\itemsep=0pt}
+
+% Acomodo fancyhdr.
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\addtolength{\headheight}{1pt}
+\lhead{Algoritmos y Estructuras de Datos II}
+\rhead{$1^{\mathrm{er}}$ cuatrimestre de 2012}
+\cfoot{\thepage /\pageref{LastPage}}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\author{Lo Muchacho'}
+\date{}
+\title{Trabajo Práctico 1 - Especificación}
+
+\begin{document}
+
+%Pagina de titulo e indice
+\thispagestyle{empty}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+%TADS
+\section{TAD \tadNombre{AS}}
+
+\begin{tad}{\tadNombre{AS}}
+\tadGeneros{As}
+\tadExporta{As, generadores, observadores, otras operaciones}
+
+\tadIgualdadObservacionalSimple{GABI}
+
+\tadGeneradores
+
+\tadOperacion{NuevoAS}{nat, posición}{As}{}
+\tadOperacion{Sancionar}{As}{As}{}
+\tadOperacion{Capturar}{As}{As}{}
+\tadOperacion{Mover}{As, posición}{As}{$\#$Sanciones $\leq$ 3}
+
+\tadOtrasOperaciones
+\tadOperacion{NuevoAS?}{As}{bool}{}
+\tadOperacion{SancionarUno}{As,conj(As)}{As}{}
+\tadOperacion{PremiarUno}{As,conj(As)}{bool}{}
+\tadOperacion{PremiarAlgunos}{conj(As)}{conj(As)}{}
+\tadOperacion{SancionarAlgunos}{conj(As)}{conj(As)}{}
+\tadOperacion{Fusionar}{conj(As), conj(As)}{conj(As)}{}
+\tadOperacion{Fusion}{As,conj(As)}{conj(As)}{}
+
+\tadAxiomas[\paratodo{As}{as}, \paratodo{nat}{pl}, \paratodo{posición}{pos}]
+
+%\tadAlinearAxiomas{false $\oluego$ $x$}
+\tadAxioma{Placa(NuevoAS(pl, pos))}{pl}
+\tadAxioma{Placa(Sancionar(as))}{Placa(as)}
+\tadAxioma{Placa(Capturar(as))}{Placa(as)}
+\tadAxioma{Placa(Mover(as, pos))}{pos}
+{\vspace{0,3cm}}
+
+\tadAxioma{Pos(NuevoAS(pl, pos))}{pos}
+\tadAxioma{Pos(Sancionar(as))}{Pos(as)}
+\tadAxioma{Pos(Capturar(as))}{Pos(as)}
+\tadAxioma{Pos(Mover(as, pos))}{pos}
+{\vspace{0,3cm}}
+
+\tadAxioma{$\#$Sanciones(NuevoAS(pl, pos))}{0}
+\tadAxioma{$\#$Sanciones(Sancionar(as))}{$\#$Sanciones(as) + 1}
+\tadAxioma{$\#$Sanciones(Capturar(as))}{$\#$Sanciones(as)}
+\tadAxioma{$\#$Sanciones(Mover(as, pos))}{$\#$Sanciones(as)}
+{\vspace{0,3cm}}
+
+\tadAxioma{$\#$Capturados(NuevoAS(pl, pos))}{0}
+\tadAxioma{$\#$Capturados(Sancionar(as))}{$\#$Capturados(as)}
+\tadAxioma{$\#$Capturados(Capturar(as))}{$\#$Capturados(as) + 1}
+\tadAxioma{$\#$Capturados(Mover(as, pos))}{$\#$Capturados(as)}
+{\vspace{0,4cm}}
+
+\tadAxioma{NuevoAS?(NuevoAS(pl, pos))}{true}
+\tadAxioma{NuevoAS?(Sancionar(as))}{false}
+\tadAxioma{NuevoAS?(Capturar(as))}{false}
+\tadAxioma{NuevoAS?(Mover(as, pos))}{false}
+{\vspace{0,3cm}}
+
+\tadAxioma{SancionarUno(as, E)}{\IF\ $\emptyset$?(E) THEN as ELSE SancionarUno(Sancionar(as), SinUno(E)) FI}
+
+\tadAxioma{PremiarUno(as, H)}{\IF\ $\emptyset$?(H) THEN as ELSE PremiarUno(Capturar(as), SinUno(H)) FI}
+{\vspace{0,3cm}}
+
+\tadAxioma{SancionarAlgunos(ases)}{\IF\ $\emptyset$?(ases) THEN $\emptyset$ ELSE Ag(Sancionar(DameUno(ases)), SancionarAlgunos(SinUno(ases))) FI}
+
+\tadAxioma{PremiarAlgunos(ases)}{\IF\ $\emptyset$?(ases) THEN $\emptyset$ ELSE Ag(Capturar(DameUno(ases)), PremiarAlgunos(SinUno(ases))) FI}
+{\vspace{0,3cm}}
+
+\tadAxioma{Fusionar($\emptyset$, A)}{A}
+\tadAxioma{Fusionar(A, $\emptyset$)}{A}
+\tadAxioma{Fusionar(Ag(a, A), Ag(b, B))}{\IF Placa(a) = Placa(b) THEN
+		{\IF\ $\#$Sanciones(a) $<$ $\#$Sanciones(b)
+		THEN Fusion(Sancionar(a), Ag(b, B))
+		ELSE {\IF\ $\#$Sanciones(a) $<$ $\#$Sanciones(b)
+			THEN Fusion(Sancionar(a), Ag(b, B))
+			ELSE Ag(a, B)
+			FI}
+		FI}
+	ELSE Fusion(a, B)
+	FI}
+
+
+\end{tad}
+
+\section{TAD \tadNombre{Rastrillaje}}
+
+\begin{tad}{\tadNombre{Rastrillaje}}
+\tadGeneros{rastri}
+\tadExporta{rastri, generadores, observadores, KK}
+\tadUsa{\tadNombre{AS}, \tadNombre{Hippie}, \tadNombre{Estudiante}, \tadNombre{Campus}, \tadNombre{Bool}, \tadNombre{Nat}, \tadNombre{Conjunto}}
+
+\tadIgualdadObservacional{}{}{}{}
+%\tadAlinearFunciones{\argumento = 0?}{nat/$n$,nat/$m$}
+\tadObservadores
+
+\tadOperacion{Campus}{rastri}{Camp}{}
+\tadOperacion{Estudiantes}{rastri}{conj(Estudiante)}{}
+\tadOperacion{Hippies}{rastri}{conj(Hippie)}{}
+\tadOperacion{Ases}{rastri}{conj(As)}{}
+
+\tadGeneradores
+
+\tadOperacion{IniciarRastri}{conj(As)/ases, Camp/cp}{rastri)}{R1}
+{\vspace{0,3cm}}
+\tadOperacion{AgEstudiante}{Estudiante/e, rastri/cp}{rastri)}
+	{1$\leq \Pi_1(e) \leq$ ancho(rs) $\land$ ($\Pi_2(e) = 1$ $\lor$ $\Pi_2(e) =$ alto(rs)) $\yluego$ $\neg$HayAlgo?(e, rs)}
+
+\tadOperacion{AgHippie}{Hippie/h, rastri/rs}{rastri}
+	{1$\leq \Pi_1(e) \leq$ ancho(rs) $\land$ ($\Pi_2(e) = 1$ $\lor$ $\Pi_2(e) =$ alto(rs)) $\yluego$ $\neg$HayAlgo?(e, rs)}
+{\vspace{0,3cm}}
+	
+\tadOperacion{MoverHippie}{Hippie/h, rastri/rs}{rastri}
+	{h $\in$ Hippies(rs) $\yluego \neg \emptyset$?(PosAdyDesocupadas(h, rs))}
+
+\tadOperacion{MoverAs}{As/as, rastri/rs}{rastri}
+	{as $\in$ Ases(rs) $\land \#$Sanciones(as) $\leq$ 3 $\yluego \neg \emptyset$?(PosAdyDesocupadas(as, rs))}
+{\vspace{0,3cm}}
+
+\tadOperacion{MoverArriba}{Estudiante/e, rastri/rs}{rastri}
+	{e $\in$ Estudiantes(rs) $\land \neg$HayAlgo?(($\Pi_1(e), \Pi_2(e) + 1$), rs)}
+\tadOperacion{MoverAbajo}{Estudiante/e, rastri/rs}{rastri}
+	{e $\in$ Estudiantes(rs) $\land \neg$HayAlgo?(($\Pi_1(e), \Pi_2(e) - 1$), rs)}
+\tadOperacion{MoverIzquierda}{Estudiante/e, rastri/rs}{rastri}
+	{e $\in$ Estudiantes(rs) $\land \neg$HayAlgo?(($\Pi_1(e) - 1, \Pi_2(e)$), rs)}
+\tadOperacion{MoverDerecha}{Estudiante/e, rastri/rs}{rastri}
+	{e $\in$ Estudiantes(rs) $\land \neg$HayAlgo?(($\Pi_1(e) + 1, \Pi_2(e)$), rs)}
+{\vspace{0,3cm}}
+
+\tadOperacion{SacarEstudiante}{Estudiante/e, rastri/rs}{rastri}
+	{e $\in$ Estudiantes(rs) $\land (\Pi_2(e) = 1 \lor \Pi_2(e) =$ ancho(rs)}
+{\vspace{0,3cm}}
+
+R1 = $\{$ \paratodo{$as_1,  as_2 \in$ ases}{}, Placa($as_1$) $\neq$ Placa($as_2$) $\land$ Pos($as_1$) $\neq$ Pos($as_2$)\\
+\-\hspace{3cm} $\land$ NuevoAS?($as_1$) = NuevoAS?($as_2$) = true \\
+\-\hspace{3cm} $\land$ $1 \leq \Pi_1(Pos(as_1)) \leq$ ancho(rs) $\land$ $1 \leq \Pi_2(Pos(as_1)) \leq$ alto(rs)\\
+\-\hspace{3cm} $\land$ $1 \leq \Pi_1(Pos(as_2)) \leq$ ancho(rs) $\land$ $1 \leq \Pi_2(Pos(as_2)) \leq$ alto(rs) $\}$
+
+\tadOtrasOperaciones
+
+\tadOperacion{}{}{}{}
+
+\tadAxiomas[\paratodo{}{}]
+%\tadAlinearAxiomas{pred(suc($n$))}
+\tadAxioma{}{}
+
+\end{tad}
+
+\end{document}
