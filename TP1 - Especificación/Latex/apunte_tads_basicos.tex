@@ -235,20 +235,21 @@ R1 = $\{$ \paratodo{$as_1,  as_2 \in$ ases}{}, Placa($as_1$) $\neq$ Placa($as_2$
 \tadAxiomas[\paratodo{}{}]
 %\tadAlinearAxiomas{pred(suc($n$))}
 
-\tadAxioma{Capturado?(e,rs)}{$\emptyset$?(PosAdyDesocupadas(e,rs)) $\land \neg \emptyset$?(AsAdy(e,rs))}
+\tadAxioma{Capturado?(e, rs)}{$\emptyset$?(PosAdyDesocupadas(e, rs)) $\land \neg \emptyset$?(AsAdy(e, rs))}
 
-\tadAxioma{EstudianteConvertido?(e,rs)}{$\neg$EstudianteCapturado?(e,rs) $\land$
+\tadAxioma{EstudianteConvertido?(e, rs)}{$\neg$EstudianteCapturado?(e, rs) $\land$
 
-$\#$HipAdy(e,rs) - $\#$Capturados(HipAdy(e,rs),rs) $\geq$ 2}
+$\#$HipAdy(e, rs) - $\#$Capturados(HipAdy(e, rs), rs) $\geq$ 2}
 
-\tadAxioma{min(a,b)}{\IF a$=$b THEN DameUno(Ag(a,Ag(b,$\emptyset$)))
-                ELSE {\IF a $<$ b THEN a
+\tadAxioma{min(a, b)}{\IF a $=$ b THEN DameUno(Ag(a, Ag(b, $\emptyset$)))
+                ELSE {\IF a $<$ b
+                THEN a
 			    ELSE b
 			    FI}
 			    FI}
 			    
-\tadAxioma{min(a,b)}{\IF a=b THEN DameUno(Ag(a,Ag(b,$\emptyset$)))
-                ELSE {\IF a < b
+\tadAxioma{min(a, b)}{\IF a $=$ b THEN DameUno(Ag(a, Ag(b, $\emptyset$)))
+                ELSE {\IF a $<$ b
 			    THEN a
 			    ELSE b
 			    FI}
