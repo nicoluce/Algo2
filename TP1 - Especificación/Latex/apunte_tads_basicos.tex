@@ -230,12 +230,76 @@ R1 = $\{$ \paratodo{$as_1,  as_2 \in$ ases}{}, Placa($as_1$) $\neq$ Placa($as_2$
 \tadOperacion{Remplazar}{conj(As), conj(As)}{conj(As)}{}
 \tadOperacion{RemplazarUno}{As, conj(As)}{conj(As)}{}
 
+\tadAxiomas[\paratodo{}{}]
 
+%Gabi desde acá
+
+\tadAxioma{Ases(MoverHippie(h,rs))}{Remplazar(Fusionar(Premiados(Capturados(HipAdy(DestinoHip(h,rs), rs), rs), rs) 
+\\$\cup$ Sancionados(Capturados(EstAdy(DestinoHip(h,rs), rs), rs), rs)), Ases(rs))}
+
+\tadAxioma{Ases(MoverAs(as,rs))}{Remplazar(Fusionar(PremiarUno(Mover(as,DestinoAs(as,rs)),
+\\Capturados(EstAdy(DestinoAs(as,rs),rs),rs))
+\\$\cup$ Premiados(Capturados(HipAdy(DestinoAs(h,rs),rs),rs),rs)
+\\$\cup$ SancionarUno(Mover(as,DestinoAs(as,rs)),Capturados(HipAdy(DestinoAs(as,rs),rs),rs))
+\\$\cup$ Sancionados(Capturados(EstAdy(DestinoAs(h,rs),rs),rs),rs)), Ases(rs))}
+
+\tadAxioma{Ases(MoverArriba(e,rs)}{Remplazar(Fusionar(Premiados(Capturados(HipAdy(($\Pi_1$(e), $\Pi_2$(e)+1, rs), rs), rs) 
+\\$\cup$ Sancionados(Capturados(EstAdy(($\Pi_1$(e), $\Pi_2$(e)+1), rs), rs), rs)), Ases(rs))}
+
+\tadAxioma{Ases(MoverAbajo(e,rs)}{Remplazar(Fusionar(Premiados(Capturados(HipAdy(($\Pi_1$(e), $\Pi_2$(e)-1, rs), rs), rs) 
+\\$\cup$ Sancionados(Capturados(EstAdy(($\Pi_1$(e), $\Pi_2$(e)-1), rs), rs), rs)), Ases(rs))}
+
+\tadAxioma{Ases(MoverIzquierda(e,rs))}{Remplazar(Fusionar(Premiados(Capturados(HipAdy(($\Pi_1$(e)-1, $\Pi_2$(e)), rs), rs), rs) 
+\\$\cup$ Sancionados(Capturados(EstAdy(($\Pi_1$(e)-1, $\Pi_2$(e)), rs), rs), rs)), Ases(rs))}
+
+\tadAxioma{Ases(MoverDerecha(e,rs))}{Remplazar(Fusionar(Premiados(Capturados(HipAdy(($\Pi_1$(e)-1,$\Pi_2$(e)),rs),rs),rs) 
+\\$\cup$ Sancionados(Capturados(EstAdy(($\Pi_1$(e)+1,$\Pi_2$(e)),rs),rs),rs)), Ases(rs))}
 
 \tadAxiomas[\paratodo{}{}]
 %\tadAlinearAxiomas{pred(suc($n$))}
 
+<<<<<<< HEAD
 \tadAxioma{Capturado?(e, rs)}{$\emptyset$?(PosAdyDesocupadas(e, rs)) $\land \neg \emptyset$?(AsAdy(e, rs))}
+=======
+%Axiomas Otras Operaciones:
+\tadAxioma{PosAses(ases)}{\IF $\emptyset$?(ases) THEN $\emptyset$ ELSE Ag(Pos(DameUno(ases)),PosAses(SinUno(ases))) FI}
+
+\tadAxioma{HayEstudiante?(p,rs)}{p $\in$ Estudiantes(rs)}
+
+\tadAxioma{HayHippie?(p,rs)}{p $\in$ Hippies(rs)}
+
+\tadAxioma{HayAs?(p,rs)}{p $\in$ PosAses(Ases(rs))}
+
+\tadAxioma{HayAlgo?(p,rs)}{HayEstudiante?(p,rs) $\lor$ HayHippie?(p,rs) $\lor$ HayAs?(p,rs) $\lor$ HayObstaculo(p,Campus(rs))}
+
+\tadAxioma{FiltrarDesocupadas(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayAlgo?(DameUno(P),rs) THEN FiltrarDesocupadas(SinUno(P)) ELSE Ag(DameUno(P),FiltrarDesocupadas(SinUno(P)) FI} FI}
+
+\tadAxioma{PosAdyDesocupadas(p,rs)}{FiltrarDesocupadas(PosAdy(p,rs),rs)}
+
+\tadAxioma{FiltrarValidas(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF 1 $\leq$ $\Pi_1$(DameUno(P)) $\leq$ ancho(rs) $\land$ 1 $\leq$ $\Pi_2$(DameUno(P)) $\leq$ alto(rs) THEN Ag(DameUno(P),FiltrarValidas(SinUno(P),rs)) ELSE FiltrarValidas(SinUno(P),rs) FI} FI}
+
+\tadAxioma{PosAdy(p,rs)}{FiltrarValidas(Ag(($\Pi_1$(p) + 1, $\Pi_2$(p)), Ag(($\Pi_1$(p) - 1, $\Pi_2$(p)), Ag(($\Pi_1$(p),$\Pi_2$(p) + 1, Ag($\Pi_1$(p), $\Pi_2$(p) - 1), $\emptyset$)))),rs)}
+
+\tadAxioma{FiltrarEstudiantes(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayEstudiante?(DameUno(P),rs) THEN Ag(DameUno(P), FiltrarEstudiantes(SinUno(P),rs)) ELSE FiltrarEstudiantes(SinUno(P),rs) FI} FI}
+
+\tadAxioma{FiltrarHippies(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayHippie?(DameUno(P),rs) THEN Ag(DameUno(P), FiltrarHippies(SinUno(P),rs)) ELSE FiltrarHippies(SinUno(P),rs) FI} FI}
+
+\tadAxioma{FiltrarAses(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayAs?(DameUno(P),rs) THEN Ag(DameUno(P),FiltrarAses(SinUno(P),rs)) ELSE FiltrarAses(SinUno(P),rs) FI} FI}
+
+\tadAxioma{EstAdy(p,rs)}{FiltrarEstudiantes(PosAdy(p,rs),rs)}
+
+%ultima hoja a partir de aca
+
+\tadAxioma{HipAdy(p,rs)}{FiltrarHippies(PosAdy(p,rs),rs)}
+
+\tadAxioma{AsAdy(p,rs)}{FiltrarAses(PosAdy(p,rs),rs)}
+
+\tadAxioma{Rech(estAdy,rs)}{\IF $\emptyset$?(estAdy) THEN $\emptyset$ ELSE {\IF $\emptyset$?(HipAdy(DameUno(estAdy),rs)) THEN Ag(DameUno(estAdy),Rech(EstAdy(DameUno(estAdy),rs),rs))\\$\cup$ Rech(SinUno(estAdy),rs) ELSE Rech(SinUno(estAdy),rs) FI} FI}
+
+\tadAxioma{Capturados(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF $\emptyset$?(PosicionesAdyDesocupadas(DameUno(P),rs)) $\land$ $\emptyset$?(AsAdy(DameUno(P),rs)) THEN Ag(DameUno(P),Capturados(SinUno(P),rs)) ELSE Capturados(SinUno(P),rs) FI} FI}
+
+\tadAxioma{Capturado?(e,rs)}{$\emptyset$?(PosAdyDesocupadas(e,rs)) $\land \neg \emptyset$?(AsAdy(e,rs))}
+>>>>>>> origin/master
 
 \tadAxioma{EstudianteConvertido?(e, rs)}{$\neg$EstudianteCapturado?(e, rs) $\land$
 
@@ -254,7 +318,115 @@ $\#$HipAdy(e, rs) - $\#$Capturados(HipAdy(e, rs), rs) $\geq$ 2}
 			    ELSE b
 			    FI}
 			    FI}		
+\tadAxioma{Distancia(p,q)}{max($\Pi_1(p)$,$\Pi_1(q)$) - min($\Pi_1(p)$,$\Pi_1(q)$) + max($\Pi_2(p)$,$\Pi_2(q)$) - min($\Pi_2(p)$, $\Pi_2(q)$)}
 
+\tadAxioma{Destino($p_1,p_2$,Ag(a,A))}{\IF $\emptyset$?(A) THEN a ELSE min(Distancia(a,$p_2$), Destino($p_1,p_2$,A)) FI}
+
+\tadAxioma{Destino($p_1,p_2,\emptyset$)}{h}
+
+\tadAxioma{MasCercano(p,Ag(a,A))}{\IF $\emptyset$?(A) THEN a ELSE min (Distancia(p,a), Distancia(p,MasCercano(p,A))) FI}
+
+\tadAxioma{DestinoHip(h,rs)}{Destino(h,MasCercano(h,Estudiantes(rs)),PosAdyDesocupadas(h,rs))}
+
+\tadAxioma{DestinoAs(as,rs)}{Destino(as,MasCercano(as,Estudiantes(rs)),PosAdyDesocupadas(as,rs))}
+
+\tadAxioma{Premiados(H,rs)}{\IF $\emptyset$?(H) THEN $\emptyset$ ELSE PremiarAlgunos(AsAdy(DameUno(H),rs)) $\cup$ Premiados(SinUno(H),rs) FI}
+
+\tadAxioma{Sancionados(E,rs)}{\IF $\emptyset$?(E) THEN $\emptyset$ ELSE SancionarAlgunos(AsAdy(DameUno(E),rs)) $\cup$ Sancionar(SinUno(E),rs) FI}
+
+\tadAxioma{Remplazar(A,$\emptyset$)}{$\emptyset$}
+
+\tadAxioma{Remplazar($\emptyset$,B)}{B}
+
+\tadAxioma{Remplazar(Ag(a,A),Ag(b,B))}{Remplazar(A,RemplazarUno(a,Ag(b,B))}
+
+\tadAxioma{RemplazarUno(as,$\emptyset$)}{$\emptyset$}
+
+\tadAxioma{RemplazarUno(as,Ag(b,B))}{\IF Placa(as) $=$ Placa(b) THEN Ag(a,B) ELSE Ag(b,RemplazarUno(a,B) FI}
+
+\tadAxiomas[\paratodo{}{}]
+%\tadAlinearAxiomas{pred(suc($n$))}
+
+%Axiomas Otras Operaciones:
+\tadAxioma{PosAses(ases)}{\IF $\emptyset$?(ases) THEN $\emptyset$ ELSE Ag(Pos(DameUno(ases)),PosAses(SinUno(ases))) FI}
+
+\tadAxioma{HayEstudiante?(p,rs)}{p $\in$ Estudiantes(rs)}
+
+\tadAxioma{HayHippie?(p,rs)}{p $\in$ Hippies(rs)}
+
+\tadAxioma{HayAs?(p,rs)}{p $\in$ PosAses(Ases(rs))}
+
+\tadAxioma{HayAlgo?(p,rs)}{HayEstudiante?(p,rs) $\lor$ HayHippie?(p,rs) $\lor$ HayAs?(p,rs) $\lor$ HayObstaculo(p,Campus(rs))}
+
+\tadAxioma{FiltrarDesocupadas(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayAlgo?(DameUno(P),rs) THEN FiltrarDesocupadas(SinUno(P)) ELSE Ag(DameUno(P),FiltrarDesocupadas(SinUno(P)) FI} FI}
+
+\tadAxioma{PosAdyDesocupadas(p,rs)}{FiltrarDesocupadas(PosAdy(p,rs),rs)}
+
+\tadAxioma{FiltrarValidas(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF 1 $\leq$ $\Pi_1$(DameUno(P)) $\leq$ ancho(rs) $\land$ 1 $\leq$ $\Pi_2$(DameUno(P)) $\leq$ alto(rs) THEN Ag(DameUno(P),FiltrarValidas(SinUno(P),rs)) ELSE FiltrarValidas(SinUno(P),rs) FI} FI}
+
+\tadAxioma{PosAdy(p,rs)}{FiltrarValidas(Ag(($\Pi_1$(p) + 1, $\Pi_2$(p)), Ag(($\Pi_1$(p) - 1, $\Pi_2$(p)), Ag(($\Pi_1$(p),$\Pi_2$(p) + 1, Ag($\Pi_1$(p), $\Pi_2$(p) - 1), $\emptyset$)))),rs)}
+
+\tadAxioma{FiltrarEstudiantes(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayEstudiante?(DameUno(P),rs) THEN Ag(DameUno(P), FiltrarEstudiantes(SinUno(P),rs)) ELSE FiltrarEstudiantes(SinUno(P),rs) FI} FI}
+
+\tadAxioma{FiltrarHippies(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayHippie?(DameUno(P),rs) THEN Ag(DameUno(P), FiltrarHippies(SinUno(P),rs)) ELSE FiltrarHippies(SinUno(P),rs) FI} FI}
+
+\tadAxioma{FiltrarAses(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF HayAs?(DameUno(P),rs) THEN Ag(DameUno(P),FiltrarAses(SinUno(P),rs)) ELSE FiltrarAses(SinUno(P),rs) FI} FI}
+
+\tadAxioma{EstAdy(p,rs)}{FiltrarEstudiantes(PosAdy(p,rs),rs)}
+
+%ultima hoja a partir de aca
+
+\tadAxioma{HipAdy(p,rs)}{FiltrarHippies(PosAdy(p,rs),rs)}
+
+\tadAxioma{AsAdy(p,rs)}{FiltrarAses(PosAdy(p,rs),rs)}
+
+\tadAxioma{Rech(estAdy,rs)}{\IF $\emptyset$?(estAdy) THEN $\emptyset$ ELSE {\IF $\emptyset$?(HipAdy(DameUno(estAdy),rs)) THEN Ag(DameUno(estAdy),Rech(EstAdy(DameUno(estAdy),rs),rs))\\$\cup$ Rech(SinUno(estAdy),rs) ELSE Rech(SinUno(estAdy),rs) FI} FI}
+
+\tadAxioma{Capturados(P,rs)}{\IF $\emptyset$?(P) THEN $\emptyset$ ELSE {\IF $\emptyset$?(PosicionesAdyDesocupadas(DameUno(P),rs)) $\land$ $\emptyset$?(AsAdy(DameUno(P),rs)) THEN Ag(DameUno(P),Capturados(SinUno(P),rs)) ELSE Capturados(SinUno(P),rs) FI} FI}
+
+\tadAxioma{Capturado?(e,rs)}{$\emptyset$?(PosAdyDesocupadas(e,rs)) $\land \neg \emptyset$?(AsAdy(e,rs))}
+
+\tadAxioma{EstudianteConvertido?(e,rs)}{$\neg$EstudianteCapturado?(e,rs) $\land$
+	
+	$\#$HipAdy(e,rs) - $\#$Capturados(HipAdy(e,rs),rs) $\geq$ 2}
+
+\tadAxioma{min(a,b)}{\IF a$=$b THEN DameUno(Ag(a,Ag(b,$\emptyset$)))
+	ELSE {\IF a $<$ b THEN a
+		ELSE b
+		FI}
+	FI}
+
+\tadAxioma{min(a,b)}{\IF a=b THEN DameUno(Ag(a,Ag(b,$\emptyset$)))
+	ELSE {\IF a < b
+		THEN a
+		ELSE b
+		FI}
+	FI}		
+\tadAxioma{Distancia(p,q)}{max($\Pi_1(p)$,$\Pi_1(q)$) - min($\Pi_1(p)$,$\Pi_1(q)$) + max($\Pi_2(p)$,$\Pi_2(q)$) - min($\Pi_2(p)$, $\Pi_2(q)$)}
+
+\tadAxioma{Destino($p_1,p_2$,Ag(a,A))}{\IF $\emptyset$?(A) THEN a ELSE min(Distancia(a,$p_2$), Destino($p_1,p_2$,A)) FI}
+
+\tadAxioma{Destino($p_1,p_2,\emptyset$)}{h}
+
+\tadAxioma{MasCercano(p,Ag(a,A))}{\IF $\emptyset$?(A) THEN a ELSE min (Distancia(p,a), Distancia(p,MasCercano(p,A))) FI}
+
+\tadAxioma{DestinoHip(h,rs)}{Destino(h,MasCercano(h,Estudiantes(rs)),PosAdyDesocupadas(h,rs))}
+
+\tadAxioma{DestinoAs(as,rs)}{Destino(as,MasCercano(as,Estudiantes(rs)),PosAdyDesocupadas(as,rs))}
+
+\tadAxioma{Premiados(H,rs)}{\IF $\emptyset$?(H) THEN $\emptyset$ ELSE PremiarAlgunos(AsAdy(DameUno(H),rs)) $\cup$ Premiados(SinUno(H),rs) FI}
+
+\tadAxioma{Sancionados(E,rs)}{\IF $\emptyset$?(E) THEN $\emptyset$ ELSE SancionarAlgunos(AsAdy(DameUno(E),rs)) $\cup$ Sancionar(SinUno(E),rs) FI}
+
+\tadAxioma{Remplazar(A,$\emptyset$)}{$\emptyset$}
+
+\tadAxioma{Remplazar($\emptyset$,B)}{B}
+
+\tadAxioma{Remplazar(Ag(a,A),Ag(b,B))}{Remplazar(A,RemplazarUno(a,Ag(b,B))}
+
+\tadAxioma{RemplazarUno(as,$\emptyset$)}{$\emptyset$}
+
+\tadAxioma{RemplazarUno(as,Ag(b,B))}{\IF Placa(as) $=$ Placa(b) THEN Ag(a,B) ELSE Ag(b,RemplazarUno(a,B) FI}
 
 \end{tad}
 
